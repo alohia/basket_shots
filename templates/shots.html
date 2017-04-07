@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+<head>
+  <title>Basketball D3</title>
+  <script src="static/jquery.min.js"></script>
+  <script src="static/d3.min.js"></script>
+  <link rel="stylesheet" href="static/base.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Data Visualization Project: Using D3</h2>
+    <section id="text"><br><br>This is the course project for Data Visualization Course 14D007. Here I have visualized basketball shots data for the New York Knicks team for the NBA season 2013-14.
+    This is an interactive visualization using the D3 library. The dataset is in CSV format which is very easily parsed using D3. It includes features like the player who made the shot and whether the shot was successful or a miss. It also includes the X and Y coordinates of all the points from where the shot was attempted.<br><br>
+
+    The visualization compares and contrasts the successful shots from the unsuccessful ones. The feature which immediately stands out is the fact that the coordinates very clearly map out the basketball court without the need of a separate canvas. We observe very prominent clustering around the 3 pointer line as well as near the basket. The successful shots are shown by green dots and the missed attempts are shown by red dots. These dots are SVG elements which are dynamically generated from each row of the dataset. We also observe the few shots attempted from mid-court which are most likely the half-time and full-time attempts. It's evident that almost all of them are always missed.<br><br>
+
+    There are some interactive elements which make the visualization more informative. I have provided a drop-down menu which allows the user to select one particular player of the team and see only his shots as well shots by the whole team. Carmelo Anthony has the most attempts in this case who is the forward of the team. His shots can be seen all across the court as opposed to some others which are concentrated near the ring. This has been done using the nest() function in D3 which allows to filter the data using a particular key. The opacity attribute of SVG objects allows me to fade out all other shots when one particular player is selected.<br><br>
+
+    Another element to add interactivity includes the on.("mouseover()") method. This allows to see the player when hovering the mouse over one particular dot in the canvas. One important observation here is that this also required to add a on.("mouseout()") mehtod to remove the name once the mouse is taken away to avoid persisting names.<br><br>
+
+    The webpage is rendered using a very simple Flask based webserver running on an Amazon AWS EC2 instance. The code is available on the provided github link.<br></section>
+    <select id="selector"></select>
+    <svg id="canvas" height="600px" width="1200px"></svg>
+    <script src="static/shots.js"></script>
+  </div>
+</body>
+</html>
